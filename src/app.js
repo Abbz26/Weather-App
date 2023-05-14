@@ -100,7 +100,7 @@ function displayTemperature(response) {
 }
 
 function search(city) {
-  let apiKey = "8895b49556a931615f57525343f9ed37";
+  let apiKey = "33d07e1a28d76a09d64977t04bafo00c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayTemperature);
 }
