@@ -70,8 +70,10 @@ function displayForecast(response) {
 
 function getForecast(coordinates) {
   let apiKey = "33d07e1a28d76a09d64977t04bafo00c";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${coordinates.lon}&lat=${coordinates.lat}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayForecast);
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.lon}&lat=${coordinates.lat}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(function (response) {
+    displayForecast(response.data);
+  });
 }
 
 function displayTemperature(response) {
@@ -93,23 +95,23 @@ function displayTemperature(response) {
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.setAttribute(
     "src",
-    `http://shecodes-assets.s3.amazonaws.com/api/weather/${response.data.weather[0].icon}.png`
+    "https://api.shecodes.io/weather/v1/icon/${forecastDay.weather[0].icon}.png"
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
   getForecast(response.data.coord);
 }
 
-function search(city) {
+function search(query) {
   let apiKey = "33d07e1a28d76a09d64977t04bafo00c";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?=${city}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${query}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayTemperature);
 }
 
 function handleSubmit(event) {
   event.preventDefault();
   let cityInputElement = document.querySelector("#city-input");
-  search(cityInputElement.value);
+  search(cityInputElement.value.trim());
 }
 
 let form = document.querySelector("#search-form");
