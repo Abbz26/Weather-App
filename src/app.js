@@ -95,7 +95,7 @@ function displayTemperature(response) {
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.setAttribute(
     "src",
-    "https://api.shecodes.io/weather/v1/icon/${forecastDay.weather[0].icon}.png"
+    `https://api.shecodes.io/weather/v1/icon/${forecastDay.weather[0].icon}.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
