@@ -41,9 +41,9 @@ function displayTemperature(response) {
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.setAttribute(
     "src",
-    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition[1].icon_url}.png`
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon_url}.png`
   );
-  iconElement.setAttribute("alt", response.data.condition[1].description);
+  iconElement.setAttribute("alt", response.data.condition.description);
 }
 
 function search(city) {
