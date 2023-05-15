@@ -44,7 +44,7 @@ function displayForecast(response) {
       <div class="col-2">
         <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
         <img
-          src=h'ttp://shecodes-assets.s3.amazonaws.com/api/weather/${
+          src='http://shecodes-assets.s3.amazonaws.com/api/weather/${
             forecastDay.weather[0].icon
           }.png'
           alt=""
@@ -76,7 +76,7 @@ function getForecast(coordinates) {
 
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
-  let queryElement = document.querySelector("#query");
+  let cityElement = document.querySelector("#query");
   let descriptionElement = document.querySelector("#description");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
@@ -86,7 +86,7 @@ function displayTemperature(response) {
   celsiusTemperature = response.data.main.temp;
 
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
-  queryElement.innerHTML = response.data.name;
+  cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed * 3.6);
@@ -102,14 +102,14 @@ function displayTemperature(response) {
 
 function search(query) {
   let apiKey = "33d07e1a28d76a09d64977t04bafo00c";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${query}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&appid=${apiKey}&units=metric`;
   https: axios.get(apiUrl).then(displayTemperature);
 }
 
 function handleSubmit(event) {
   event.preventDefault();
-  let queryInputElement = document.querySelector("#query-input");
-  search(queryInputElement.value);
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
 }
 
 let form = document.querySelector("#search-form");
