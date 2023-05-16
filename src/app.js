@@ -31,7 +31,7 @@ function displayTemperature(response) {
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
 
-  celsiusTemp = response.data.temperature.current;
+  celsiusTemperature = response.data.temperature.current;
 
   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
   cityElement.innerHTML = response.data.city;
@@ -76,7 +76,7 @@ function displayCelsiusTemperature(event) {
   fahrenheitLink.classList.remove("active");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
-console.log(temperatureElement);
+console.log(celsiusTempreature);
 
 let celsiusTemperature = null;
 
