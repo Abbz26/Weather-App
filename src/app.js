@@ -77,7 +77,7 @@ function displayCelsiusTemperature(event) {
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
-console.log(response);
+console.log(displayTemperature);
 
 let celsiusTemperature = null;
 
