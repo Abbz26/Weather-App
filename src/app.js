@@ -76,8 +76,7 @@ function displayCelsiusTemperature(event) {
   fahrenheitLink.classList.remove("active");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
-console.log(celsiusTemperature);
-
+console.log(current);
 let celsiusTemperature = null;
 
 let form = document.querySelector("#search-form");
