@@ -71,11 +71,12 @@ function displayFahrenheitTemperature(event) {
 
 function displayCelsiusTemperature(event) {
   event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
-  let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
+console.log(celsiusTemperature);
 
 let celsiusTemperature = null;
 
