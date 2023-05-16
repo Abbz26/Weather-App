@@ -34,6 +34,7 @@ function displayTemperature(response) {
   celsiusTemperature = response.data.temperature.current;
 
   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
+  console.log(response.data.temperature.current);
   cityElement.innerHTML = response.data.city;
   descriptionElement.innerHTML = response.data.condition.description;
   humidityElement.innerHTML = response.data.temperature.humidity;
@@ -76,7 +77,7 @@ function displayCelsiusTemperature(event) {
   fahrenheitLink.classList.remove("active");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
-console.log(response.data.temperature.current);
+
 let celsiusTemperature = null;
 
 let form = document.querySelector("#search-form");
