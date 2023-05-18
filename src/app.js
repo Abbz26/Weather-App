@@ -23,24 +23,23 @@ function formatDate(timestamp) {
 }
 
 function displayforecast(response) {
-  console.log(response.data.day);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
-  days.forEach(function (day) {
+  forecast.forEach(function (forecastDay) {
     forecastHTML =
       forecastHTML +
       `<div class="col-2">
-                <div class="weather-forecast-date">${day}</div>
+                <div class="weather-forecast-date">${forecastDay.dt}</div>
                 <img
-                  src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
+                  src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${forecast.daily.condition.icon}.png"
                   alt=""
                   width="42"
                 />
                 <div class="weather-forecast-temperatures">
-                  <span class="weather-forcast-temperature-max"> 24° </span>
-                  <span class="weather-forcast-temperature-min"> 16° </span>
+                  <span class="weather-forcast-temperature-max"> ${forecastDay.temperature.max}° </span>
+                  <span class="weather-forcast-temperature-min"> ${forecastDay.temperature.min}° </span>
                 </div>
               </div>`;
   });
