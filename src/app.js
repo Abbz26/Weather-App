@@ -23,7 +23,7 @@ function formatDate(timestamp) {
 }
 
 function displayforecast(response) {
-  console.log(response.data.day);
+  console.log(response.data.temperature.day);
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
