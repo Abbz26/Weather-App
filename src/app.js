@@ -23,7 +23,7 @@ function formatDate(timestamp) {
 }
 
 function displayforecast(response) {
-  let forecast = response.data.daily;
+  let forecast = response.data.temperature.day;
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
@@ -124,4 +124,3 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("New York");
-displayforecast();
