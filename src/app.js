@@ -24,7 +24,6 @@ function formatDate(timestamp) {
 
 function displayforecast(response) {
   let forecast = response.data.temperature.day;
-  console.log(displayforecast);
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
@@ -48,6 +47,7 @@ function displayforecast(response) {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
+console.log(displayforecast);
 
 function getForecast(coordinates) {
   console.log(coordinates);
